@@ -5,18 +5,9 @@ class RegisterRequest(BaseModel):
     visitante: VisitanteRequest
     password: str
 
-    class Config:
-        orm_mode: True
-
 class AuthRequest(BaseModel):
     correo: EmailStr
     password: str
 
-    class Config:
-        orm_mode: True
-
 class AuthResponse(BaseModel):
     token: str
-
-    class Config:
-        orm_mode: True

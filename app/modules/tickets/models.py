@@ -1,8 +1,10 @@
 from app.db.database import Base
-from sqlalchemy import Column, Integer, String, Float
+from sqlalchemy import Column, Integer, ForeignKey
 
-class TipoTicket(Base):
-    __tablename__ = "tipos_ticket"
+
+class Ticket(Base):
+    __tablename__ = "tickets"
     id = Column(Integer, primary_key=True, index=True)
-    nombre = Column(String(20), nullable=False)
-    precio = Column(Float, nullable=False)
+    tipo_id = Column(Integer, ForeignKey("tipos_ticket.id"), unique=True, nullable=True)
+    visitante_id = Column(Integer, ForeignKey("visitantes.id"), unique=True, nullable=True)
+    comprador_id = Column(Integer, ForeignKey("visitantes.id"), unique=True, nullable=True)

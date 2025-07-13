@@ -10,9 +10,6 @@ class VisitanteRequest(BaseModel):
     fechaNac: date
     correo: EmailStr
 
-    class Config:
-        orm_mode: True
-
 class VisitanteResponse(BaseModel):
     tipoDocumento: str
     numDocumento: str
@@ -21,6 +18,3 @@ class VisitanteResponse(BaseModel):
     apellidoMat: str
     fechaNac: date
     correo: EmailStr
-
-    class Config:
-        orm_mode: True
